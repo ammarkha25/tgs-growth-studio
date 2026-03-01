@@ -1,0 +1,41 @@
+<section class="py-24 px-4 md:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-20">
+      <h1 class="section-title mb-4">Industries We Serve</h1>
+      <p class="section-subtitle">
+        Deep expertise across key sectors with proven track records
+      </p>
+    </div>
+
+    <div class="space-y-20">
+      <article
+        *ngFor="let industry of industries; let isOdd = odd"
+        [ngClass]="{
+          'flex flex-col lg:flex-row-reverse gap-12 items-center': true,
+          'lg:flex-row': isOdd
+        }"
+      >
+        <div class="flex-1">
+          <img [src]="industry.image" [alt]="industry.name" class="w-full rounded-lg shadow-lg" />
+        </div>
+
+        <div class="flex-1">
+          <h2 class="text-4xl font-bold text-slate-900 dark:text-white mb-4">{{ industry.name }}</h2>
+          <p class="text-lg text-slate-600 dark:text-slate-300 mb-8">{{ industry.description }}</p>
+
+          <div class="mb-8">
+            <h4 class="font-bold text-slate-900 dark:text-white mb-4">Our expertise:</h4>
+            <ul class="space-y-2">
+              <li *ngFor="let point of industry.keyPoints" class="flex items-center gap-3">
+                <span class="text-primary font-bold">✓</span>
+                <span class="text-slate-600 dark:text-slate-300">{{ point }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <button class="btn-primary px-6 py-3">Explore {{ industry.name }}</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

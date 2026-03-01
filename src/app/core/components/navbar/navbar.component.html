@@ -1,0 +1,51 @@
+<nav class="fixed top-0 w-full z-50 glass-nav border-b border-primary/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex justify-between h-20 items-center">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <div class="w-10 h-10 bg-primary rounded flex items-center justify-center">
+          <span class="text-white font-extrabold text-xl tracking-tighter">TGS</span>
+        </div>
+        <span class="font-bold text-xl tracking-tight hidden sm:block">THE GROWTH STUDIO</span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-10">
+        <a 
+          routerLink="/" 
+          routerLinkActive="text-primary" 
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="text-sm font-medium hover:text-primary transition-colors cursor-pointer">
+          Home
+        </a>
+        <a 
+          routerLink="/portfolio" 
+          routerLinkActive="text-primary"
+          class="text-sm font-medium hover:text-primary transition-colors cursor-pointer">
+          Our Businesses
+        </a>
+        <a 
+          routerLink="/process" 
+          routerLinkActive="text-primary"
+          class="text-sm font-medium hover:text-primary transition-colors cursor-pointer">
+          Process
+        </a>
+        <a 
+          routerLink="/about" 
+          routerLinkActive="text-primary"
+          class="text-sm font-medium hover:text-primary transition-colors cursor-pointer">
+          About
+        </a>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="flex items-center">
+        <button 
+          (click)="navigateTo('about')"
+          class="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded font-semibold text-sm transition-all">
+          Work With Us
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

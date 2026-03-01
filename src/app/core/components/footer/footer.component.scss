@@ -1,0 +1,203 @@
+@import '../../../../styles/variables.scss';
+
+.footer {
+  background: linear-gradient(180deg, var(--color-bg-darker) 0%, #050810 100%);
+  border-top: 1px solid var(--color-border);
+  padding: var(--spacing-3xl) 0 var(--spacing-xl);
+  margin-top: var(--spacing-3xl);
+
+  @include responsive('max-md') {
+    padding: var(--spacing-2xl) 0 var(--spacing-md);
+  }
+}
+
+.footer__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+
+  @include responsive('max-md') {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-3xl);
+
+  @include responsive('md') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+  }
+
+  @include responsive('max-md') {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+}
+
+.footer__column {
+  @include flex-column;
+  gap: var(--spacing-md);
+
+  &--brand {
+    gap: var(--spacing-lg);
+  }
+}
+
+.footer__heading {
+  font-size: 1.125rem;
+  color: var(--color-text-primary);
+  font-weight: 600;
+  margin: 0;
+}
+
+.footer__description {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footer__text {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.footer__links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.footer__link {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  @include transition(color);
+  position: relative;
+
+  &:hover {
+    color: var(--color-primary);
+    margin-left: 4px;
+  }
+}
+
+.footer__socials {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.footer__social {
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  font-weight: 700;
+  font-size: 0.875rem;
+  @include transition(all);
+
+  &:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+    transform: translateY(-4px);
+  }
+}
+
+.footer__newsletter {
+  display: flex;
+  gap: var(--spacing-sm);
+
+  @include responsive('max-md') {
+    flex-direction: column;
+  }
+}
+
+.footer__input {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  @include transition(border-color);
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+
+  &::placeholder {
+    color: var(--color-text-muted);
+  }
+}
+
+.footer__button {
+  @include button-base;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--color-primary);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+
+  &:hover {
+    background: var(--color-primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  }
+
+  @include responsive('max-md') {
+    width: 100%;
+  }
+}
+
+.footer__bottom {
+  @include flex-between;
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--color-border);
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+
+  @include responsive('max-md') {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.footer__copyright {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.footer__bottom-links {
+  display: flex;
+  gap: var(--spacing-xl);
+
+  @include responsive('max-md') {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.footer__bottom-link {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  @include transition(color);
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}

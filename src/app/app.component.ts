@@ -12,14 +12,18 @@ import { FooterComponent } from './core/components/footer/footer.component';
   imports: [CommonModule, RouterModule, NavbarComponent, FooterComponent],
   template: `
     <app-navbar></app-navbar>
-    <main class="pt-20 min-h-screen">
+    <main class="main-content">
       <router-outlet></router-outlet>
     </main>
     <app-footer></app-footer>
   `,
-  styles: []
+  styles: [`
+    .main-content {
+      min-height: calc(100vh - 200px);
+    }
+  `]
 })
-export class App implements OnInit {
+export class AppComponent implements OnInit {
   private titleService = inject(Title);
   private metaService = inject(Meta);
   private router = inject(Router);
@@ -29,8 +33,8 @@ export class App implements OnInit {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
-        const data = this.router.routerState.root.firstChild?.data as any;
-        const title = data?.['title'] || 'TGS Growth Studio';
+        const routeData = this.router.routerState.root.firstChild?.data as any;
+        const title = routeData?.['title'] || 'TGS Growth Studio';
         this.titleService.setTitle(title);
         
         this.metaService.updateTag({

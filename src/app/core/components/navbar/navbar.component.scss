@@ -1,0 +1,168 @@
+@import '../../../../styles/variables.scss';
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-md) 0;
+  @include transition(background-color);
+
+  &__container {
+    @include flex-between;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+
+    @include responsive('max-md') {
+      padding: 0 var(--spacing-md);
+    }
+  }
+
+  &__brand {
+    display: flex;
+    gap: var(--spacing-md);
+  }
+
+  &__logo {
+    @include flex-column;
+    @include flex-center;
+    gap: 0;
+    @include transition(transform, color);
+
+    &:hover {
+      transform: scale(1.05);
+      color: var(--color-primary-light);
+    }
+  }
+
+  &__logo-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    letter-spacing: 2px;
+  }
+
+  &__logo-sub {
+    font-size: 0.625rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 1px;
+    margin-top: -4px;
+  }
+
+  &__menu {
+    @include flex-between;
+    gap: var(--spacing-2xl);
+
+    @include responsive('max-md') {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--color-bg-darker);
+      border-bottom: 1px solid var(--color-border);
+      flex-direction: column;
+      gap: var(--spacing-md);
+      padding: var(--spacing-lg);
+      width: 100%;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: var(--spacing-xl);
+    list-style: none;
+
+    @include responsive('max-md') {
+      flex-direction: column;
+      gap: var(--spacing-md);
+      width: 100%;
+    }
+  }
+
+  &__link {
+    position: relative;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    @include transition(color);
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-primary);
+      @include transition(width);
+    }
+
+    &:hover,
+    &.active {
+      color: var(--color-primary);
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    @include responsive('max-md') {
+      &::after {
+        display: none;
+      }
+
+      &.active {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  &__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+
+    @include responsive('max-md') {
+      display: flex;
+    }
+
+    &-icon {
+      width: 24px;
+      height: 3px;
+      background: var(--color-text-primary);
+      border-radius: 2px;
+      @include transition(background-color, transform);
+    }
+  }
+
+  &__cta {
+    @include button-base;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: white;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    @include responsive('max-md') {
+      width: 100%;
+      margin-top: var(--spacing-md);
+    }
+  }
+}

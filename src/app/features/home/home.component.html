@@ -1,0 +1,107 @@
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 lg:pt-52 lg:pb-36 overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full"></div>
+    <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full"></div>
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+    <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight mb-8">
+      TGS: We Don't Just Build IT,<br/>
+      <span class="text-primary">We Build Businesses</span>
+    </h1>
+    <p class="max-w-2xl mx-auto text-lg lg:text-xl text-slate-500 dark:text-slate-400 mb-12 leading-relaxed">
+      Beyond technology, we architect sustainable enterprises. We partner with visionaries to ideate, incubate, and operate market-leading companies across diverse global industries.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <button 
+        (click)="viewPortfolio()"
+        class="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-lg font-bold text-lg hover:shadow-lg hover:shadow-primary/20 transition-all">
+        View Our Portfolio
+      </button>
+      <button 
+        (click)="learnProcess()"
+        class="w-full sm:w-auto border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 px-8 py-4 rounded-lg font-bold text-lg transition-all">
+        Learn Our Process
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Diverse Industries -->
+<section class="py-24 bg-slate-50 dark:bg-slate-900/50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="mb-16">
+      <h2 class="text-sm font-bold tracking-widest text-primary uppercase mb-3">Expertise</h2>
+      <h3 class="text-3xl lg:text-4xl font-bold">Diverse Industries</h3>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div *ngFor="let industry of industries" class="bg-white dark:bg-background-dark p-8 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-colors group">
+        <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+          <span class="material-icons text-3xl">{{ industry.icon }}</span>
+        </div>
+        <h4 class="text-xl font-bold mb-3">{{ industry.name }}</h4>
+        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{{ industry.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Ventures -->
+<section class="py-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div>
+        <h2 class="text-sm font-bold tracking-widest text-primary uppercase mb-3">Portfolio</h2>
+        <h3 class="text-3xl lg:text-4xl font-bold">Featured Ventures</h3>
+      </div>
+      <button 
+        (click)="viewAllVentures()"
+        class="inline-flex items-center gap-2 text-primary font-bold hover:underline transition-all">
+        View All Ventures <span class="material-icons text-sm">arrow_forward</span>
+      </button>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div *ngFor="let venture of ventures" class="group relative aspect-[4/5] overflow-hidden rounded-xl">
+        <img 
+          [src]="venture.image" 
+          [alt]="venture.title"
+          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
+        <div class="absolute bottom-0 p-8 w-full">
+          <div class="mb-4 inline-block px-3 py-1 bg-primary text-[10px] font-bold uppercase rounded tracking-wider">{{ venture.category }}</div>
+          <h4 class="text-2xl font-bold text-white mb-2">{{ venture.title }}</h4>
+          <p class="text-slate-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{{ venture.description }}</p>
+          <button class="bg-white text-background-dark px-5 py-2 rounded font-bold text-xs uppercase tracking-widest hover:bg-primary hover:text-white transition-all">
+            Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process Section -->
+<section class="py-24 bg-slate-50 dark:bg-slate-900/50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-20">
+      <h2 class="text-sm font-bold tracking-widest text-primary uppercase mb-3">Strategy</h2>
+      <h3 class="text-3xl lg:text-4xl font-bold">The TGS Blueprint</h3>
+    </div>
+    <div class="relative">
+      <!-- Line -->
+      <div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 dark:bg-slate-800 -translate-y-1/2"></div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8">
+        <!-- Step 1 -->
+        <div *ngFor="let step of steps" class="relative bg-white dark:bg-background-dark p-8 rounded-xl border border-slate-200 dark:border-slate-800 z-10">
+          <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-6 shadow-lg shadow-primary/30 mx-auto lg:mx-0">
+            {{ step.number }}
+          </div>
+          <h4 class="text-xl font-bold mb-4 text-center lg:text-left">{{ step.title }}</h4>
+          <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed text-center lg:text-left">
+            {{ step.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
